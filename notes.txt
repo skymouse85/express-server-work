@@ -11,8 +11,8 @@ endpoint: a path + an http verb such as GET or PUT
 
 Route parameters
 
-Use aj colon to parse string in a request path intoi a parameter stored in req.params, e.g.:
-app.gert('/campsites/:campsiteid', req, res, next) => {
+Use a colon to parse string in a request path intoi a parameter stored in req.params, e.g.:
+app.get('/campsites/:campsiteid', req, res, next) => {
     ...
 });
 in the above example, if the server recieves GET request for /campsites/23, it will store '23' as the value for req.params.campsiteid 
@@ -24,6 +24,19 @@ a GET request is simple - the server recieves a GET req and responds with the re
 a POST or PUT request is a bit more complex operation (write) request message body contains data that the server needs to parse
 
 the built-in express-json() middleware automatically parses JSON data in properties of the req.body JavaScript object, so we can use thyat data easily
+
+
+does the package JSON go to git? 
+
+filebased modules simaler to components? 
+
+extra resources in import/export 
+
+NODE - the timer is built in C or C++?
+
+the call back 
+
+
 
 
 // const express = require('express');
