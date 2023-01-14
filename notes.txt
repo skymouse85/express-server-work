@@ -1,0 +1,94 @@
+restful API's with express
+
+Express routing methods:
+app.get(), app.put(), app.delete(), etc
+Required parametes: path and callback function
+e.g. app.get('/campsites',.(restful, res, next) => {
+    ...
+})
+
+endpoint: a path + an http verb such as GET or PUT 
+
+Route parameters
+
+Use aj colon to parse string in a request path intoi a parameter stored in req.params, e.g.:
+app.gert('/campsites/:campsiteid', req, res, next) => {
+    ...
+});
+in the above example, if the server recieves GET request for /campsites/23, it will store '23' as the value for req.params.campsiteid 
+
+
+express.json()
+a GET request is simple - the server recieves a GET req and responds with the requested data
+
+a POST or PUT request is a bit more complex operation (write) request message body contains data that the server needs to parse
+
+the built-in express-json() middleware automatically parses JSON data in properties of the req.body JavaScript object, so we can use thyat data easily
+
+
+// const express = require('express');
+// const morgan = require('morgan');
+
+// const hostname = 'localhost';
+// const port = 3000;
+
+// const app = express();
+// app.use(morgan('dev'));
+// app.use(express.json());
+
+// app.all('/campsites', (req, res, next) => {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text/plain');
+//     next();
+// });
+
+// app.get('/campsites/:campsiteId', (req, res) => {
+//     res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`);
+// });
+
+// app.post('/campsites', (req, res) => {
+//     res.end(`Will add the campsite: ${req.body.name} with description: ${req.body.description}`)
+// });
+
+// app.put('/campsites', (req, res) => {
+//     res.statusCode = 403;
+//     res.end('PUT operation not supported on /campsites');
+// });
+
+// app.delete('.campsites', (req, res) => {
+//     res.end('Deleting all campsites');
+// });
+
+
+// app.get('/campsites/:campsiteId', (req, res) => {
+//     res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`)
+// });
+
+// app.post('/campsites/:campsiteId', (req, res) => {
+//     res.statusCode = 403;
+//     res.end(`POST operations not supported on /campsites/${req.params.campsiteId}`)
+// })
+
+// app.put('/campsites/:campsiteId', (req, res) => {
+//     res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
+//     res.end(`Will update the campsite: ${req.body.name}
+//     with description: ${req.body.description}`);
+// });
+
+// app.delete('/campsites/:campsiteId', (req, res) => {
+//     res.end(`Deleting campsite: ${req.params.campsiteId}`);
+// });
+
+// app.use(express.static(__dirname + './public'));
+
+// app.use((req, res) => {
+//     res.statusCode = 200;
+//     res.setHeader('Content-Type', 'text-html');
+//     res.end(`<html><body><h1>This is an Express Server</h1></body/><html>`);
+// });
+
+
+// //creates an instance of the http server class, and start listening to it. 
+// app.listen(port, hostname, () => {
+//     console.log(`Server running at http://${hostname}:${port}/`);
+// });
